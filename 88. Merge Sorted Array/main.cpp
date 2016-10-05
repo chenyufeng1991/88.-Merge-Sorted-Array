@@ -13,6 +13,16 @@ using namespace std;
 
 void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
 {
+    if (n == 0)
+    {
+        return;
+    }
+    else if (m == 0)
+    {
+        copy(nums2.begin(), nums2.end(), nums1.begin());
+        return;
+    }
+
     vector<int>::iterator nums1Vec = nums1.begin();
     for (long i = 0; i < nums2.size(); i++)
     {
