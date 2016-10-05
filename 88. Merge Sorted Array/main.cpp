@@ -30,7 +30,9 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
         {
             vecIte++;
         }
-        for (long i = nums1.size() - m; i < nums1.size(); i++,vecIte++)
+
+        long count = nums1.size() - m;
+        while (count--)
         {
             nums1.erase(vecIte);
         }
@@ -40,7 +42,7 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
     for (long i = 0; i < nums2.size(); i++)
     {
         nums1Vec = nums1.begin();
-        for (int j = 0; j < m + n; j++,nums1Vec++)
+        for (long j = 0; j < m + n; j++,nums1Vec++)
         {
             if (nums2[i] < nums1[j])
             {
@@ -49,24 +51,24 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
             }
 
             // 插入到最后一位
-            if (j == m + n - 1)
+            if (j == nums1.size()-1)
             {
-                nums1.insert(nums1Vec, nums2[i]);
+                nums1.insert(++nums1Vec, nums2[i]);
+                break;
             }
         }
     }
-    cout << "ok";
 }
 
 int main(int argc, const char * argv[])
 {
 
-    int arr1[] = {1,0};
-    int arr2[] = {2};
+    int arr1[] = {1,2,3,0,0,0};
+    int arr2[] = {4,5,6};
     vector<int>vv1(arr1,arr1+sizeof(arr1)/sizeof(int));
     vector<int>vv2(arr2,arr2+sizeof(arr2)/sizeof(int));
 
-    merge(vv1,1,vv2,1);
+    merge(vv1,3,vv2,3);
 
 
 
