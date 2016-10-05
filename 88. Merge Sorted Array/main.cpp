@@ -23,6 +23,19 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
         return;
     }
 
+    if (nums1.size() > m)
+    {
+        vector<int>::iterator vecIte = nums1.begin();
+        for (long i = 0; i < m; i++)
+        {
+            vecIte++;
+        }
+        for (long i = nums1.size() - m; i < nums1.size(); i++,vecIte++)
+        {
+            nums1.erase(vecIte);
+        }
+    }
+
     vector<int>::iterator nums1Vec = nums1.begin();
     for (long i = 0; i < nums2.size(); i++)
     {
@@ -48,12 +61,12 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
 int main(int argc, const char * argv[])
 {
 
-    int arr1[] = {3,5};
-    int arr2[] = {1};
+    int arr1[] = {1,0};
+    int arr2[] = {2};
     vector<int>vv1(arr1,arr1+sizeof(arr1)/sizeof(int));
     vector<int>vv2(arr2,arr2+sizeof(arr2)/sizeof(int));
 
-    merge(vv1,3,vv2,1);
+    merge(vv1,1,vv2,1);
 
 
 
