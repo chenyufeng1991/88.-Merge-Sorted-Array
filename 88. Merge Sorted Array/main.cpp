@@ -38,12 +38,12 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
 int main(int argc, const char * argv[])
 {
 
-    int arr1[] = {1,3};
-    int arr2[] = {2,4};
+    int arr1[] = {3,5};
+    int arr2[] = {1};
     vector<int>vv1(arr1,arr1+sizeof(arr1)/sizeof(int));
     vector<int>vv2(arr2,arr2+sizeof(arr2)/sizeof(int));
 
-    merge(vv1,2,vv2,2);
+    merge(vv1,3,vv2,1);
 
 
 
